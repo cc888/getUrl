@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>wayne</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
+  <script>
+    $(function(){
+      $('#send').on('click', function(){
+        var url = $('#sendText').val();
+        var iframeMsgDesktop = '<iframe height="100%" width="100%" src="'+url+'"></iframe>';
+        var iframeMsgMobile = '<iframe height="100%" width="414px" src="'+url+'"></iframe>';
+        $('#desktop').append(iframeMsgDesktop);        
+        $('#mobile').append(iframeMsgMobile);
+
+      });
+    })
+  </script>
+  <style>
+    #sendText {
+      width:500px;
+    }
+    #desktop, #mobile {
+      margin-top: 20px;
+      border: 1px solid #555;
+      height: 300px;
+    }
+  </style>
+</head>
+<body>
+  <input id="sendText" type="text" />
+  <input id="send" type="submit">
+  <div id="desktop"></div>
+  <div id="mobile"></div>
+</body>
+</html>
+
