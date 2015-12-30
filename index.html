@@ -8,11 +8,15 @@
     $(function(){
       $('#send').on('click', function(){
         var url = $('#sendText').val();
+	var url1 = $('#sendText1').val();
         var iframeMsgDesktop = '<iframe height="100%" width="100%" src="'+url+'"></iframe>';
-        var iframeMsgMobile = '<iframe height="100%" width="414px" src="'+url+'"></iframe>';
-        $('#desktop').append(iframeMsgDesktop);        
-        $('#mobile').append(iframeMsgMobile);
-
+        if (url1) {
+          var iframeMsgMobile = '<iframe height="100%" width="414px" src="'+url1+'"></iframe>';
+        }else{
+          var iframeMsgMobile = '<iframe height="100%" width="414px" src="'+url+'"></iframe>';
+        }
+        $('#desktop').html("").append(iframeMsgDesktop);
+        $('#mobile').html("").append(iframeMsgMobile);
       });
     })
   </script>
@@ -28,7 +32,8 @@
   </style>
 </head>
 <body>
-  <input id="sendText" type="text" />
+  PC: <input id="sendText" type="text" />
+  Mobile: <input id="sendText1" type="text" />
   <input id="send" type="submit">
   <div id="desktop"></div>
   <div id="mobile"></div>
